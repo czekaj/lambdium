@@ -32,7 +32,7 @@ exports.handler = (event, context, callback) => {
 
   var opts = sandbox.buildOptions(event, $browser);
 
-  sandbox.executeScript(opts, function(err) {
+  sandbox.executeScript(opts, function(err, res) {
     if (process.env.LOG_DEBUG) {
       log.debug(child.execSync('ps aux').toString());
       log.debug(child.execSync('cat /tmp/chromedriver.log').toString())
@@ -42,6 +42,6 @@ exports.handler = (event, context, callback) => {
       return callback(err, null);
     }
 
-    callback(null, 'Finished executing script');
+    callback(null, JSON.parse(res));
   });
 };

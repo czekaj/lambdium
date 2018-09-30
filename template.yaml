@@ -6,7 +6,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      Runtime: nodejs6.10
+      Runtime: nodejs8.10
       FunctionName: lambdium
       Description: headless chromium running selenium
       # This needs to be fairly large: chromium needs a lot of memory
