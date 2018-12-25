@@ -1,5 +1,6 @@
 
 const chromium = require('./lib/chromium');
+const child = require('child_process');
 const sandbox = require('./lib/sandbox');
 const log = require('lambda-log');
 const apiHandler = require('./lib/api-handler');
@@ -41,7 +42,7 @@ exports.handler = (event, context, callback) => {
       log.error(err);
       return callback(err, null);
     }
-
+    
     callback(null, JSON.parse(res));
   });
 };
